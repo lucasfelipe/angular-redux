@@ -1,0 +1,16 @@
+{
+  "name": "angular-redux-node",
+  "version": "1.0.0",
+  "description": "Mock Service for AngularRedux formation",
+  "main": "app.js",
+  "scripts": {
+    "test": "test"
+  },
+  "author": "Lucas Felipe Alves Leiro Santos",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "lodash": "^4.17.15"
+  }
+}
