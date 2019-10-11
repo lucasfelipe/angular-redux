@@ -27,22 +27,22 @@ index = async (req, res) => {
 };
 
 save = (req, res) => {
-    let { cat } = req.body;
+    let cat = req.body;
 
     cat._id = cats.length + 1;
 
-    this.cats = this.cats.concat(cat);
+    cats = cats.concat(cat);
 
-    const last = _.last(this.cats);
+    const last = _.last(cats);
 
-    res.status(200).json({ success: { last } });
+    res.status(200).json({ success: { cat: last } });
 };
 
 update = (req, res) => {
     const { id } = req.params;
     const { cat } = req.body;
 
-    this.cats = this.cats.map(c => {
+    cats = cats.map(c => {
         if (Object.is(c.id, id)) {
             return cat;
         }
@@ -55,7 +55,7 @@ update = (req, res) => {
 
 remove = (req, res) => {
   const { id } = req.params;
-  this.cats = this.cats.filter(c => !Object.is(c.id, id));
+  cats = cats.filter(c => !Object.is(c.id, id));
   res.status(200).json({ success: {message: 'removed'} });
 };
 

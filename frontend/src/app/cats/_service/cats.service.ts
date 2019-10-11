@@ -18,4 +18,10 @@ export class CatsService {
       map((res: any) => (res.success.cats as Cat[]))
     );
   }
+
+  public save(cat: Cat): Observable<Cat> {
+    return this.http.post(this.url, cat).pipe(
+      map((res: any) => (res.success.cat as Cat))
+    );
+  }
 }

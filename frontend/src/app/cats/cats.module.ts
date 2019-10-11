@@ -6,11 +6,14 @@ import {CatsService} from './_service/cats.service';
 import {HttpClientModule} from '@angular/common/http';
 import {SuiMessageModule, SuiModalModule} from 'ng2-semantic-ui';
 import {CatsStoreModule} from './_store/cats-store.module';
+import { SaveCatComponent } from './save-cat/save-cat.component';
+import {ReactiveFormsModule} from '@angular/forms';
 
 @NgModule({
-  declarations: [CatsComponent],
+  declarations: [CatsComponent, SaveCatComponent],
   imports: [
     CommonModule,
+    ReactiveFormsModule,
     CatsRoutingModule,
     HttpClientModule,
     SuiModalModule,

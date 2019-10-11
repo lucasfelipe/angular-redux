@@ -18,3 +18,23 @@ export function type<T>(label: T | ''): T {
 
   return label as T;
 }
+
+export class ImmutableArrayUtils {
+  public static insertItem<T>(array: Array<T>, item: T): Array<T> {
+    const newArray = array.slice();
+    newArray.splice(array.length, 0, item);
+    return newArray;
+  }
+
+  public static insertItemInBeginning<T>(array: Array<T>, item: T): Array<T> {
+    return [item, ...array];
+  }
+
+  public static removeItem<T>(array: Array<T>, item: T): Array<T> {
+    return array.filter(it => !Object.is(it, item));
+  }
+
+  public static updateItem<T>(array: Array<T>, item: T): Array<T> {
+    return array.map(it => !Object.is(it, item) ? it : { ...item });
+  }
+}

@@ -24,4 +24,12 @@ export class CatsEffects {
     map((data: Cat[]) => new fromActions.LoadCatsSuccessAction(data))
   );
 
+  @Effect()
+  saveCat$: Observable<Action> = this.actions$.pipe(
+    ofType(fromActions.ActionTypes.SAVE_CAT),
+    map((action: fromActions.SaveCatAction) => action.payload),
+    switchMap((data: Cat) => this.catsService.save(data)),
+    map((data: Cat) => new fromActions.SaveCatSuccessAction(data))
+  );
+
 }

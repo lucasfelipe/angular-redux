@@ -1,0 +1,34 @@
+<sui-modal #modal (dismissed)="back()">
+  <div class="header">Add Cat</div>
+  <div class="content">
+    <form [formGroup]="form" class="ui form" (ngSubmit)="save()">
+      <div class="field">
+        <label>Name</label>
+        <input
+          type="text"
+          placeholder="Name"
+          formControlName="text"
+        />
+      </div>
+      <div class="field">
+        <label>Type</label>
+        <select
+          class="ui fluid dropdown"
+          formControlName="type"
+        >
+          <option value="">State</option>
+          <option value="Felino">Felino</option>
+        </select>
+      </div>
+      <div class="field">
+        <label>Upvotes</label>
+        <input
+          type="number"
+          placeholder="Upvotes"
+          formControlName="upvotes"
+        />
+      </div>
+      <button type="submit" class="ui button" tabindex="0">Save</button>
+    </form>
+  </div>
+</sui-modal>

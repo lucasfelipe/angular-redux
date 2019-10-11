@@ -4,7 +4,9 @@ import {Cat} from '../_model/cat';
 
 export const ActionTypes = {
   LOAD_CATS: type('[CATS] LOAD_CATS'),
-  LOAD_CATS_SUCCESS: type('[CATS] LOAD_CATS_SUCCESS')
+  LOAD_CATS_SUCCESS: type('[CATS] LOAD_CATS_SUCCESS'),
+  SAVE_CAT: type('[CATS] SAVE_CAT'),
+  SAVE_CAT_SUCCESS: type('[CATS] SAVE_CAT_SUCCESS')
 };
 
 export class LoadCatsAction implements Action {
@@ -19,4 +21,16 @@ export class LoadCatsSuccessAction implements Action {
   constructor(public payload: Cat[]) { }
 }
 
-export type CatsActions = LoadCatsAction | LoadCatsSuccessAction;
+export class SaveCatAction implements Action {
+  readonly type = ActionTypes.SAVE_CAT;
+
+  constructor(public payload: Cat) { }
+}
+
+export class SaveCatSuccessAction implements Action {
+  readonly type = ActionTypes.SAVE_CAT_SUCCESS;
+
+  constructor(public payload: Cat) { }
+}
+
+export type CatsActions = LoadCatsAction | LoadCatsSuccessAction | SaveCatAction | SaveCatSuccessAction;
